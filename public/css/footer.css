@@ -1,0 +1,88 @@
+/* Основные стили для футера */
+.footer {
+    background-color: var(--color-dark);
+    padding: 10px 0;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-logo,
+.footer-menu,
+.footer-social {
+    flex: 1 1 200px;
+    margin: 10px;
+    text-align: center;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu ul li {
+    margin-bottom: 10px;
+}
+
+.footer-menu ul li a {
+    text-decoration: none;
+    color: var(--color-after-light);
+    font-size: 14px;
+}
+
+.footer-menu ul li a:hover {
+    color: var(--color-light);
+}
+
+.social-icons-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons-footer:hover {
+    transform: scale(1.2) rotate(10deg); /* Увеличение и вращение */
+}
+
+.social-icons-footer .icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-social h2 {
+    font-size: 18px;
+    color: var(--color-light);
+    margin: 0;
+}
+
+.footerMainLink {
+    text-decoration: none;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo,
+    .footer-menu,
+    .footer-social {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+
+    .social-icons-footer {
+        justify-content: center;
+    }
+}

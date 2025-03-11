@@ -1,0 +1,124 @@
+/* Основные стили для контейнера */
+.cabinetContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки */
+    gap: 20px; /* Расстояние между секциями */
+    align-items: stretch; /* Растягиваем элементы по высоте */
+    padding: 20px;
+    height: auto;
+}
+
+/* Стили для секции с контентом */
+.profile-section {
+    background-color: var(--color-dark);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    /* min-height: 400px; Минимальная высота блока */
+    height: auto; /* Высота будет увеличиваться, если контента много */
+}
+
+/* Стили для секции с фото */
+.profile-image-section {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    /* height: 600px; Фиксированная высота фото */
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%; /* Занимает всю высоту родительского контейнера */
+    object-fit: cover; /* Обрезает фото, чтобы оно заполнило контейнер */
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05); /* Увеличение фото при наведении */
+    opacity: 0.9; /* Легкое затемнение */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .cabinetContainer {
+        grid-template-columns: 1fr; /* Одна колонка на мобильных устройствах */
+    }
+
+    .profile-image-section {
+        display: none; /* Скрываем фото на мобильных устройствах */
+    }
+
+    .profile-section {
+        min-height: auto; /* Убираем минимальную высоту на мобильных устройствах */
+        padding: 15px; /* Уменьшаем отступы */
+    }
+}
+
+.welcome-message {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Стили для кнопок */
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-dark-alter);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.button-link:hover {
+    background-color: var(--color-dark);
+}
+
+/* Стили для списка бронирований */
+.bookings-list {
+    margin-top: 20px;
+}
+
+.booking-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.booking-item:last-child {
+    border-bottom: none;
+}
+
+/* Стили для кнопки выхода */
+.logout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.profile-image {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05); /* Увеличение фото */
+    opacity: 0.9; /* Легкое затемнение */
+}

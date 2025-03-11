@@ -1,0 +1,586 @@
+/* Общие */
+.blockInfo {
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: var(--color-light);
+    text-align: center;
+}
+
+/* Приветственный блок */
+.homeImage {
+    height: 100vh; /* Занимает всю высоту экрана */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("/images/buckground.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 5%; /* Отступы по бокам */
+    margin-bottom: 20px;
+}
+
+.homeSlogan {
+    max-width: 600px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон */
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px); /* Размытие фона */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.homeSlogan h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 12px 24px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.button-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px); /* Эффект поднятия кнопки */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.button-link-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .homeImage {
+        padding: 0 10px;
+    }
+
+    .homeSlogan {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .homeSlogan h1 {
+        font-size: 1.8rem;
+    }
+
+    .button-link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .homeSlogan h1 {
+        font-size: 1.5rem;
+    }
+
+    .button-link {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* блок ЧТО ВХОДИТ */
+
+.serviceFirstBlock {
+    padding: 20px;
+    background-color: var(--color-dark-grey);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.serviceSecondBlock {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.serviceTripleBlock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.serviceComponent {
+    background: var(--color-dark);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: calc(33.33% - 20px);
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.serviceComponent:hover {
+    transform: translateY(-5px);
+}
+
+.serviceIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.serviceIcon img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.serviceDesc h3 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: var(--color-light);
+}
+
+.serviceDesc p {
+    font-size: 14px;
+    color: var(--color-after-light);
+}
+
+@media (max-width: 1024px) {
+    .serviceComponent {
+        width: calc(50% - 20px);
+    }
+
+    .serviceTripleBlock {
+        flex-wrap: nowrap;
+    }
+
+    .serviceFirstBlock h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .serviceComponent {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .serviceTripleBlock {
+        flex-wrap: wrap;
+    }
+}
+
+/* Вид внутри \ снаружи */
+
+.homeView {
+    margin-bottom: 20px;
+}
+
+.gallery-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh; /* Минимальная высота, чтобы контейнер занимал весь экран */
+    gap: 10px; /* Расстояние между блоками */
+    padding: 20px; /* Отступы по краям */
+    box-sizing: border-box;
+}
+
+.gallery-item {
+    flex: 1; /* Каждый блок занимает 50% ширины */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px; /* Скругленные углы */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Тень */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Сохраняет пропорции изображения */
+    aspect-ratio: 1 / 1; /* Соотношение сторон (квадрат) */
+    transition: filter 0.3s ease; /* Плавное затемнение */
+}
+
+.overlay {
+    position: absolute;
+    top: 50%; /* Центрирование по вертикали */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translate(-50%, -50%); /* Точное центрирование */
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.3s ease; /* Плавное появление */
+    z-index: 2; /* Над затемнением */
+}
+
+/* Затемнение фона при наведении */
+.gallery-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.7)
+    ); /* Градиентное затемнение */
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.3s ease; /* Плавное появление */
+    z-index: 1; /* Под текстом, но над фото */
+}
+
+/* Эффекты при наведении */
+.gallery-item:hover::before {
+    opacity: 1; /* Затемнение фона */
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1; /* Появление текста */
+}
+
+.gallery-item:hover img {
+    filter: brightness(0.7); /* Затемнение изображения */
+}
+
+.gallery-item:hover {
+    transform: scale(1.02); /* Легкое увеличение */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Увеличенная тень */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .gallery-container {
+        flex-direction: column; /* Элементы располагаются вертикально */
+        min-height: auto; /* Убираем фиксированную высоту */
+        height: auto; /* Высота определяется содержимым */
+        padding-bottom: 80px; /* Отступ для футера */
+    }
+
+    .gallery-item {
+        flex: none; /* Сбрасываем flex для вертикального расположения */
+        width: 100%;
+        height: 40vh; /* Высота блоков на мобильных устройствах */
+    }
+
+    .gallery-item img {
+        aspect-ratio: auto; /* Отключаем фиксированное соотношение сторон */
+    }
+
+    .overlay {
+        font-size: 30px; /* Уменьшаем размер текста для мобильных */
+    }
+}
+
+/* Pricing блок  Цены*/
+.pricing-section {
+    padding: 60px 20px;
+    background-color: var(--color-dark);
+    border-radius: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.pricing-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.pricing-text {
+    max-width: 500px;
+}
+
+.pricing-text h2 {
+    font-size: 3rem;
+    color: var(--color-light);
+    margin-bottom: 20px;
+}
+
+.pricing-text p {
+    font-size: 1.1rem;
+    color: var(--color-light);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btnPricing {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-dark-grey);
+    border: 1px solid var(--color-light);
+    color: var(--color-light);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+.btnPricing:hover {
+    background-color: var(--color-dark);
+    transform: scale(1.05);
+}
+
+.pricing-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.heart-list {
+    list-style: none; /* Убираем стандартные маркеры */
+    padding-left: 0; /* Убираем отступ слева */
+}
+
+.heart-list li {
+    position: relative;
+    padding-left: 25px; /* Отступ для сердечка */
+    margin-bottom: 10px; /* Отступ между пунктами */
+    font-size: 1.1rem;
+    color: var(--color-light);
+}
+
+.heart-list li::before {
+    content: "❤️ "; /* Используем символ сердечка */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #d37325; /* Цвет сердечка */
+    font-size: 1.2rem;
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+    .pricing-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pricing-text {
+        max-width: 100%;
+    }
+
+    .pricing-text h2 {
+        font-size: 2rem;
+    }
+
+    .pricing-text p {
+        font-size: 1rem;
+    }
+
+    .btnPricing {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .pricing-image {
+        order: -1;
+        margin-bottom: 20px;
+    }
+}
+
+/* Slider  основне стили*/
+swiper-container {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+}
+
+swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-dark);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+swiper-slide:hover {
+    /* transform: scale(1.05); */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.slider-block {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.slider-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.slider-description {
+    padding: 15px;
+    /* background: var(--color-dark); */
+    border-radius: 0 0 10px 10px;
+}
+
+.slider-description h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: var(--color-light);
+}
+
+.slider-description p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--color-light);
+}
+
+/* Стили для навигации и пагинации */
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+swiper-container::part(pagination) {
+    /* bottom: 5px; */
+    top: 10px;
+}
+
+swiper-container::part(bullet) {
+    background: #fff;
+    opacity: 0.5;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+}
+
+swiper-container::part(bullet-active) {
+    opacity: 1;
+    background: #000000;
+}
+
+.how-to-get {
+    display: flex;
+    gap: 20px; /* Добавляем отступ между картой и текстом */
+    background-color: var(--color-dark); /* Темный фон для современного стиля */
+    color: var(--color-light); /* Белый текст */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+.map-container {
+    flex: 1;
+    height: 450px; /* Высота карты */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.info-container .address {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.info-container .contacts {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.social-icons .social-icon {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icons .social-icon:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.route-button {
+    background-color: var(--color-dark-grey);
+    color: var(--color-text-dark);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid var(--color-light);
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.route-button:hover {
+    background-color: var(--color-dark); /* Цвет при наведении */
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .how-to-get {
+        flex-direction: column; /* Меняем направление на вертикальное */
+    }
+
+    .map-container {
+        height: 300px; /* Уменьшаем высоту карты для мобильных */
+        margin-bottom: 20px; /* Добавляем отступ снизу */
+    }
+
+    .info-container {
+        text-align: center; /* Центрируем текст на мобильных */
+    }
+
+    .social-icons {
+        justify-content: center; /* Центрируем иконки */
+    }
+
+    .route-button {
+        width: 100%; /* Кнопка на всю ширину */
+    }
+}

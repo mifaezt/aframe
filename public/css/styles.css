@@ -1,0 +1,148 @@
+/* Нормалайз блочной моделли */
+@import url("normalize.css");
+@import url("form.css");
+@import url("header.css");
+@import url("home.css");
+@import url("footer.css");
+@import url("about.css");
+@import url("interior.css");
+@import url("cabinet.css");
+@import url("post.css");
+@import url("booking.css");
+
+@font-face {
+    font-family: "Rubik";
+    src: url("../fonts/Rubik-Light.woff2") format("woff2");
+    font-weight: light;
+    font-style: normal;
+    font-display: swap; /*отрисовка если не загружен*/
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url("../fonts/Rubik-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap; /*отрисовка если не загружен*/
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url("../fonts/Rubik-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /*отрисовка если не загружен*/
+}
+
+:root {
+    --color-dark-grey: #1a1f23;
+    --color-dark-alter: #2c3e50;
+    --color-light: #ffffff;
+    --color-after-light: #d1d1d1;
+    --color-dark: #0000006b;
+    --colot-text-dark: #000000;
+
+    --border-radius: 30px;
+    --border: 1px solid var(--color-light);
+
+    --font-family-base: "Rubik", sans-serif;
+    /* Высота кнопоок */
+    --input-height: 54px;
+    /* Ширина основного контейнера */
+    --container-width: 1300px;
+    /* Горизонтальные внутренние отступы */
+    --container-padding-x: 15px;
+    /* Плавность интерактивных элементов */
+    --transition-duration: 0.2s;
+}
+
+body {
+    background-color: var(--color-dark-grey);
+    font-family: var(--font-family-base);
+    /* шрифт */
+    color: var(--color-light);
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.container {
+    /* реальные ограничения сетки в 1300px */
+    max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+    /* центрируем по горизонтали */
+    margin-inline: auto;
+    padding-inline: var(--container-padding-x);
+}
+
+.section {
+    opacity: 0; /* Начальная прозрачность */
+    transform: translateY(50px); /* Сдвиг вниз */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.visible {
+    opacity: 1; /* Появление */
+    transform: translateY(0); /* Возврат на место */
+}
+
+.link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-dark-alter);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.link-button:hover {
+    background-color: #2980b9;
+}
+
+.is-invalid {
+    border: 1px solid red;
+    background-color: pink;
+}
+
+.alert {
+    width: 300px;
+    margin: 20px auto;
+}
+
+.alert-danger {
+    background-color: #b82323; /* Цвет фона */
+    color: #155724; /* Цвет текста */
+    border-color: #ff0000; /* Цвет границы */
+    padding: 10px; /* Отступы */
+    border-radius: 4px; /* Скругление углов */
+    margin-bottom: 15px; /* Отступ снизу */
+    margin-top: 10px;
+}
+
+.alert-success {
+    background-color: #d4edda; /* Цвет фона */
+    color: #155724; /* Цвет текста */
+    border-color: #c3e6cb; /* Цвет границы */
+    padding: 10px; /* Отступы */
+    border-radius: 4px; /* Скругление углов */
+    margin-bottom: 15px; /* Отступ снизу */
+    margin-top: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: lighter;
+    /* все заглавные */
+    /* text-transform: uppercase; */
+}
+
+.divider {
+    background-color: white;
+    height: 2px;
+    border: none;
+    margin: 10px 0;
+}

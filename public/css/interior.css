@@ -1,0 +1,88 @@
+.interior-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Заголовок */
+.interior-text-center {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+/* Контейнер для блоков */
+.interior-blocks-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Увеличиваем отступы между блоками */
+}
+
+/* Стили для каждого блока */
+.interior-block {
+    flex: 1 1 calc(33.333% - 40px); /* 3 блока в ряд на десктопах */
+    background-color: var(--color-dark);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+    opacity: 0; /* Начальная прозрачность для анимации */
+    transform: translateY(20px); /* Начальное смещение для анимации */
+}
+
+/* Анимация появления */
+.interior-block.interior-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ховер-эффект */
+.interior-block:hover {
+    transform: scale(1.05); /* Увеличиваем блок при наведении */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Увеличиваем тень */
+}
+
+/* Контейнер для изображения */
+.interior-image-container {
+    width: 100%;
+    height: 400px; /* Высота больше ширины для вертикальных фото */
+    overflow: hidden;
+}
+
+.interior-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Изображение заполняет контейнер без искажений */
+    border-radius: 10px 10px 0 0;
+}
+
+/* Контейнер для текста */
+.interior-text-container {
+    padding: 20px;
+    background-color: var(--color-dark-gray);
+    border-radius: 0 0 10px 10px;
+}
+
+.interior-text-container p {
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+}
+
+/* Адаптация для планшетов */
+@media (max-width: 1024px) {
+    .interior-block {
+        flex: 1 1 calc(50% - 40px); /* 2 блока в ряд на планшетах */
+    }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .interior-block {
+        flex: 1 1 100%; /* 1 блок в ряд на мобильных */
+    }
+
+    .interior-image-container {
+        height: 300px; /* Уменьшаем высоту для мобильных устройств */
+    }
+}

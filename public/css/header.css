@@ -1,0 +1,177 @@
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Добавлено для лучшей адаптивности */
+}
+
+.social-icons a {
+    height: 40px; /* Уменьшено для мобильных устройств */
+    width: 40px; /* Уменьшено для мобильных устройств */
+    margin: 5px;
+}
+
+.social-icons {
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap; /* Добавлено для лучшей адаптивности */
+    /* transition: transform 0.3s ease; */
+}
+
+.social-icons a:hover {
+    /* transform: scale(1.2) rotate(10deg); Увеличение и вращение */
+}
+
+.slogan {
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 20px;
+    text-align: center; /* Центрирование текста */
+}
+
+.header {
+    background-color: var(--color-dark);
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.header ul {
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.header li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--color-light);
+    text-decoration: none;
+    transition: background 0.3s ease; /* Добавлен переход для hover-эффекта */
+}
+
+.header li a:hover {
+    background: rgba(255, 255, 255, 0.1); /* Добавлен hover-эффект */
+}
+
+.header .logo {
+    margin-left: 10px;
+}
+
+/* menu */
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.3s ease-out; /* Увеличенное время для плавности */
+    overflow-y: auto; /* Добавлено для прокрутки на мобильных устройствах */
+}
+
+/* menu icon */
+.header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+
+.header .menu-icon .navicon {
+    background: #ffffff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background 0.3s ease-out; /* Увеличенное время для плавности */
+    width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+    background: #ffffff;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.3s ease-out; /* Увеличенное время для плавности */
+    width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+    top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+    top: -5px;
+}
+
+/* menu btn */
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+    max-height: 300px; /* Увеличенная высота для прокрутки */
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+/* 48em = 768px */
+@media (min-width: 48em) {
+    .header li {
+        float: left;
+    }
+
+    .header li a {
+        padding: 10px 20px;
+    }
+
+    .header .menu {
+        clear: none;
+        max-height: none;
+    }
+
+    .header .menu-icon {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 48em) {
+    .navbar-content {
+        flex-direction: column;
+    }
+
+    .logo {
+        max-height: 150px; /* Уменьшено для мобильных устройств */
+        max-width: 150px; /* Уменьшено для мобильных устройств */
+    }
+
+    .slogan {
+        font-size: 15px;
+        font-weight: 400;
+        margin: 10px 0; /* Уменьшено для мобильных устройств */
+    }
+
+    .social-icons {
+        justify-content: center; /* Центрирование иконок на мобильных устройствах */
+    }
+}

@@ -1,0 +1,70 @@
+.about-section {
+    padding: 20px 20px;
+    /* background: linear-gradient(
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.9)
+        ),
+        url("{{ asset("images/forest-background.jpg") }}"); */
+    background-size: cover;
+    background-position: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    gap: 40px; /* Расстояние между текстом и изображением */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1; /* Текст занимает оставшееся пространство */
+}
+
+.about-image {
+    flex: 0 0 40%; /* Изображение занимает 40% ширины контейнера */
+    max-width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* На мобильных текст и изображение будут друг под другом */
+    }
+
+    .about-image {
+        flex: 0 0 100%; /* Изображение занимает всю ширину */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-text,
+.about-image {
+    animation: fadeIn 1.5s ease-in-out;
+}
