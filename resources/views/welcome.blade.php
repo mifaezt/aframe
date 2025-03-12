@@ -6,19 +6,18 @@
 @section('content')
 
 <section>
-<div class="homeImage">
-    <div class="homeSlogan">
-        <h1>Отдохните от суеты в гостевом А-фрейм домике на берегу живописного озера в Карелии!</h1>
-        <div class="button-link-container">
-            @auth <!-- Если пользователь залогинен -->
-                <a href="{{ route('bookings.create') }}" class="btnPricing">ЗАБРОНИРОВАТЬ</a>
-            @else <!-- Если пользователь не залогинен -->
-                <a href="{{ route('login') }}" class="btnPricing">ЗАБРОНИРОВАТЬ</a>
-            @endauth
+    <div class="homeImage">
+        <div class="homeSlogan">
+            <h1>Отдохните от суеты в гостевом А-фрейм домике на берегу живописного озера в Карелии!</h1>
+            <div class="button-link-container">
+                @auth <!-- Если пользователь залогинен -->
+                    <a href="{{ route('bookings.create') }}" class="button-link">ЗАБРОНИРОВАТЬ</a>
+                @else <!-- Если пользователь не залогинен -->
+                    <a href="{{ route('login') }}" class="button-link">ЗАБРОНИРОВАТЬ</a>
+                @endauth
+            </div>
         </div>
     </div>
-</div>
-
 </section>
 
 <section class="section">
@@ -123,30 +122,28 @@
                 <h2>Цены</h2>
                 <p>Наши афрейм домики предлагают комфорт и уют по доступным ценам. Выберите подходящий вариант и наслаждайтесь отдыхом в гармонии с природой.</p>
                 <ul class="heart-list">
-                    <li> Будние дни —  @if(isset($pricePerNight))
-                    <p><strong>Цена за ночь:</strong> {{ $pricePerNight }} руб.</p>
+                    <li> С понедельника по четверг:  @if(isset($pricePerNight))
+                    <p>Цена за ночь:<strong> {{ $pricePerNight }} </strong> руб. / сутки</p>
                 @else
                     <p><strong>Цена за ночь:</strong> Не указана</p>
                 @endif
-                 р./ сутки</li>
+                </li>
 
                  
-                    <li> @if(isset($pricePerNightWeek))
-                    <p><strong>Цена за ночь:</strong> {{ $pricePerNightWeek }} руб.</p>
-                @else
+                    <li> С пятницы по воскресенье и праздники: @if(isset($pricePerNightWeek))
+                    <p>Цена за ночь: <strong>{{ $pricePerNightWeek }} </strong> руб. / сутки</p>
+                        @else
                     <p><strong>Цена за ночь:</strong> Не указана</p>
-                @endif / сутки</li>
-                    <li> Суббота — 15 000 р. / сутки</li>
+                        @endif</li>
                     <li> Доп. гость — 1 500 р. с человека в сутки</li>
-                    <li> Заезд с 14:00, выезд до 11:00</li>
+                    <li> Заезд с 14:00, выезд до 12:00</li>
                 </ul>
                 @auth <!-- Если пользователь залогинен -->
                 <a href="{{ route('bookings.create') }}" class="btnPricing">ЗАБРОНИРОВАТЬ</a>
             @else <!-- Если пользователь не залогинен -->
                 <a href="{{ route('login') }}" class="btnPricing">ЗАБРОНИРОВАТЬ</a>
             @endauth
-                <p>*Цены динамические, могут меняться от сезона и спроса. Тарифы можно уточнить, нажав "Забронировать" или
-                по нмоеру телефон +79535389063</p>
+                <p>*Цены динамические, могут меняться от сезона и спроса. Тарифы можно уточнить в наших соцсетях или напрямую по номеру телефона в рзделе <a class="link" href="#contacts">Контакты</a></p>
             </div>
             <div class="pricing-image">
                 <img src="{{ asset('images/PricingImage.jpg') }}" alt="Афрейм домик">

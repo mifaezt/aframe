@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+
+
     // Отображает форму бронирования
     public function create()
     {
@@ -51,21 +53,21 @@ class BookingController extends Controller
     }
 
     public function getEvents()
-    {
-        $bookings = Booking::all();
+{
+    $bookings = Booking::all(); // Получаем все бронирования
 
-        $events = [];
-        foreach ($bookings as $booking) {
-            $events[] = [
-                'title' => 'Занято',
-                'start' => $booking->start_date,
-                'end' => $booking->end_date,
-                'color' => '#ff9f89',
-            ];
-        }
-
-        return response()->json($events);
+    $events = [];
+    foreach ($bookings as $booking) {
+        $events[] = [
+            'title' => 'Занято', // Название события
+            'start' => $booking->start_date, // Дата начала
+            'end' => $booking->end_date, // Дата окончания
+            'color' => '#ff9f89', // Цвет события (например, красный)
+        ];
     }
+
+    return response()->json($events); // Возвращаем данные в формате JSON
+}
 
     // Проверка доступности дат
     public function checkAvailability(Request $request)

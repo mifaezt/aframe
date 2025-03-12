@@ -18,6 +18,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
+
 // маршрут новостей
 Route::get('/news', [PostController::class, 'index'])->name('news.index');
 // маршрут олд удалить
