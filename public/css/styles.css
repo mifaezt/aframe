@@ -110,8 +110,8 @@ body {
 }
 
 .alert-danger {
-    background-color: #b82323; /* Цвет фона */
-    color: #155724; /* Цвет текста */
+    background-color: #c0597b; /* Цвет фона */
+    color: var(--color-light); /* Цвет текста */
     border-color: #ff0000; /* Цвет границы */
     padding: 10px; /* Отступы */
     border-radius: 4px; /* Скругление углов */

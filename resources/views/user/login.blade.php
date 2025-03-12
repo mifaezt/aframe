@@ -20,12 +20,13 @@
             <div class="form-group">
                 <button type="submit">Войти</button>
             </div>
-
-
-                <label for="remember">Запомнить пароль</label>
-                <input name="remember" id="remember" type="checkbox">
+           
 
             <div class="link">
+            <div>
+                <label for="remember">Запомнить пароль</label>
+                <input name="remember" id="remember" type="checkbox">
+            </div>
                  <a href="{{ route('register') }}">Зарегистрироваться</a>
                 <a href="{{ route('password.request') }}" >Забыли логин или пароль?</a>
             </div>
