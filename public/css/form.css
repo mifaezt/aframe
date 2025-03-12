@@ -3,9 +3,49 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 100%;
+    max-width: 350px;
     margin: 6% auto;
-    /* margin-bottom: 10%; */
+    text-align: center;
+    color: #fff;
+}
+
+/* Стили для кнопки повторной отправки
+.btn-resend {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+} */
+
+/* .btn-resend:hover {
+    background-color: #0056b3;
+} */
+
+/* Стили для приветственного сообщения */
+.welcome-message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff;
+}
+
+/* Стили для ссылки выхода */
+.logout-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.logout-link:hover {
+    color: #ddd;
 }
 
 .form-group {
@@ -39,15 +79,15 @@
 .link {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     margin-top: 10px;
+    font-size: 16px;
 }
 
 .link a {
     color: #fff;
     text-decoration: none;
-    font-size: 14px;
-    margin: 5px 0;
+    /* margin: 5px 0; */
     transition: color 0.3s ease;
 }
 

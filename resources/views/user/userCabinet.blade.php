@@ -21,7 +21,9 @@
                 <p><strong>Имя:</strong> {{ auth()->user()->name }}</p>
                 <p><strong>Email:</strong> {{ auth()->user()->email }}</p>
                 <p><strong>Телефон:</strong> {{ auth()->user()->phone ?? 'Не указан' }}</p>
-
+                
+                <h3>Возникли вопросы? Хотите отменить бронь? Свяжитесь с нами! <a href="{{ route('home') }}#contacts" class="admin-panel-button">Контакты</a></h3>
+                <a href="{{ route('logout') }}" class="logout-button">Выйти</a>
                 <!-- Кнопка панели администрирования -->
                 @if(auth()->user()->role_id === 1)
                     <a href="{{ route('voyager.dashboard') }}" class="admin-panel-button">Панель администрирования</a>
@@ -31,16 +33,16 @@
             <!-- Список бронирований -->
             <div class="bookings-list">
                 <h2>Мои бронирования</h2>
-                <ul>
-                    @foreach(auth()->user()->bookings as $booking)
+                @forelse(auth()->user()->bookings->reverse() as $booking)
+                    <ul>
                         <li class="booking-item">
                             <p><strong>Бронирование с</strong> {{ $booking->start_date }} <strong>по</strong> {{ $booking->end_date }}</p>
                             <p><strong>Стоимость:</strong> {{ $booking->total_price }} руб.</p>
                         </li>
-                    @endforeach
-                </ul>
-                <h3>Возникли вопросы? Свяжитесь с нами! <a href="{{ route('home') }}#contacts" class="admin-panel-button">Контакты</a></h3>
-                <a href="{{ route('logout') }}" class="logout-button">Выйти</a>
+                    </ul>
+                @empty
+                    <p class="no-bookings">Пока бронирований нет.</p>
+                @endforelse
             </div>
         </section>
 

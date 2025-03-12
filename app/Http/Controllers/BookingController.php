@@ -81,4 +81,18 @@ class BookingController extends Controller
 
         return response()->json(['available' => $isAvailable]);
     }
+
+    // Ценник бронирования в переменную pricePerNight
+    public function userCabinet() {
+        // Получаем цену домика из таблицы house_settings
+        $houseSetting = HouseSetting::first(); // Предполагаем, что у вас только одна запись с настройками
+        $pricePerNight = $houseSetting ? $houseSetting->price_per_night : null;
+        $pricePerNightWeek = $houseSetting ? $houseSetting->price_per_night_week : null;
+    
+        // Передаем данные в вид
+        return view('user.userCabinet', [
+            'pricePerNight' => $pricePerNight,
+            'pricePerNightWeek' => $pricePerNightWeek,
+        ]);
+    }
 }

@@ -11,9 +11,9 @@
         <h1>Отдохните от суеты в гостевом А-фрейм домике на берегу живописного озера в Карелии!</h1>
         <div class="button-link-container">
             @auth <!-- Если пользователь залогинен -->
-                <a href="{{ route('bookings.create') }}" class="button-link">ЗАБРОНИРОВАТЬ</a>
+                <a href="{{ route('bookings.create') }}" class="btnPricing">ЗАБРОНИРОВАТЬ</a>
             @else <!-- Если пользователь не залогинен -->
-                <a href="{{ route('login') }}" class="button-link">ЗАБРОНИРОВАТЬ</a>
+                <a href="{{ route('login') }}" class="btnPricing">ЗАБРОНИРОВАТЬ</a>
             @endauth
         </div>
     </div>
@@ -123,13 +123,28 @@
                 <h2>Цены</h2>
                 <p>Наши афрейм домики предлагают комфорт и уют по доступным ценам. Выберите подходящий вариант и наслаждайтесь отдыхом в гармонии с природой.</p>
                 <ul class="heart-list">
-                    <li> Будние дни — 11 000 р./ сутки</li>
-                    <li> Пятница — 12 000 р. / сутки</li>
+                    <li> Будние дни —  @if(isset($pricePerNight))
+                    <p><strong>Цена за ночь:</strong> {{ $pricePerNight }} руб.</p>
+                @else
+                    <p><strong>Цена за ночь:</strong> Не указана</p>
+                @endif
+                 р./ сутки</li>
+
+                 
+                    <li> @if(isset($pricePerNightWeek))
+                    <p><strong>Цена за ночь:</strong> {{ $pricePerNightWeek }} руб.</p>
+                @else
+                    <p><strong>Цена за ночь:</strong> Не указана</p>
+                @endif / сутки</li>
                     <li> Суббота — 15 000 р. / сутки</li>
                     <li> Доп. гость — 1 500 р. с человека в сутки</li>
                     <li> Заезд с 14:00, выезд до 11:00</li>
                 </ul>
-                <a href="#contacts" class="btnPricing">Забронировать</a>
+                @auth <!-- Если пользователь залогинен -->
+                <a href="{{ route('bookings.create') }}" class="btnPricing">ЗАБРОНИРОВАТЬ</a>
+            @else <!-- Если пользователь не залогинен -->
+                <a href="{{ route('login') }}" class="btnPricing">ЗАБРОНИРОВАТЬ</a>
+            @endauth
                 <p>*Цены динамические, могут меняться от сезона и спроса. Тарифы можно уточнить, нажав "Забронировать" или
                 по нмоеру телефон +79535389063</p>
             </div>

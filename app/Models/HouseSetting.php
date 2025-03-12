@@ -10,6 +10,10 @@ class HouseSetting extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'price_per_night'
+        'name', 
+        'description', 
+        'price_per_night', 
+        'price_friday', 
+        'price_saturday'
     ];
 }
