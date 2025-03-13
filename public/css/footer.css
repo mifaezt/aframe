@@ -17,7 +17,7 @@
 .footer-logo,
 .footer-menu,
 .footer-social {
-    flex: 1 1 200px;
+    flex: 1 1 230px;
     margin: 10px;
     text-align: center;
 }
@@ -49,7 +49,7 @@
     transition: transform 0.3s ease;
 }
 
-.social-icons-footer:hover {
+.social-icons-footer a:hover {
     transform: scale(1.2) rotate(10deg); /* Увеличение и вращение */
 }
 

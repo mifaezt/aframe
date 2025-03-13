@@ -76,6 +76,9 @@ class UserController extends Controller
         // Создаем событие регистрации
         event(new Registered($user));
 
+         // Отправляем письмо верефикации
+        $user->sendEmailVerificationNotification();
+
         // автоматический логин после регистрации
         Auth::login($user);
 

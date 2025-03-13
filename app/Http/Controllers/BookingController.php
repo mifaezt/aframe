@@ -6,7 +6,8 @@ use Carbon\Carbon;
 use App\Models\Booking;
 use App\Models\HouseSetting;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NewBookingNotification;
 class BookingController extends Controller
 {
 
@@ -39,16 +40,25 @@ class BookingController extends Controller
 
         // Расчет стоимости
         $totalDays = Carbon::parse($request->start_date)->diffInDays($request->end_date);
-        $totalPrice = $totalDays * 5000; // Цена за ночь (можно заменить на динамическую)
+        $totalPrice = $totalDays * 5000; // Цена за ночь 
 
         // Создание бронирования
-        Booking::create([
+        $booking = Booking::create([
             'user_id' => auth()->id(),
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'total_price' => $totalPrice,
         ]);
 
+        // Получаем текущего пользователя
+        $user = auth()->user();
+
+        // Отправляем уведомление администратору
+        $adminEmail = 'mifaezt@gmail.com';
+        Notification::route('mail', $adminEmail)
+            ->notify(new NewBookingNotification($booking, $user));
+
+        // Редирект на страницу личного кабинета с сообщением об успехе
         return redirect()->route('userCabinet')->with('success', 'Бронирование успешно создано!');
     }
 

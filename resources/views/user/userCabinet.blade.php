@@ -14,6 +14,11 @@
 
             <!-- Кнопка брони -->
             <a href="{{ route('bookings.create') }}" class="button-link">ЗАБРОНИРОВАТЬ</a>
+            
+              <!-- Кнопка панели администрирования -->
+              @if(auth()->user()->role_id === 1)
+                    <a href="{{ route('voyager.dashboard') }}" class="admin-panel-button">Панель администрирования</a>
+                @endif
 
             <!-- Информация о профиле -->
             <div class="profile-info">
@@ -24,10 +29,7 @@
                 
                 <h3>Возникли вопросы? Хотите отменить бронь? Свяжитесь с нами! <a href="{{ route('home') }}#contacts" class="admin-panel-button">Контакты</a></h3>
                 <a href="{{ route('logout') }}" class="logout-button">Выйти</a>
-                <!-- Кнопка панели администрирования -->
-                @if(auth()->user()->role_id === 1)
-                    <a href="{{ route('voyager.dashboard') }}" class="admin-panel-button">Панель администрирования</a>
-                @endif
+              
             </div>
 
             <!-- Список бронирований -->
@@ -37,7 +39,7 @@
                     <ul>
                         <li class="booking-item">
                             <p><strong>Бронирование с</strong> {{ $booking->start_date }} <strong>по</strong> {{ $booking->end_date }}</p>
-                            <p><strong>Стоимость:</strong> {{ $booking->total_price }} руб.</p>
+                            <!-- <p><strong>Стоимость:</strong> {{ $booking->total_price }} руб.</p> -->
                         </li>
                     </ul>
                 @empty

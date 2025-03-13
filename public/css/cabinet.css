@@ -45,6 +45,9 @@
 @media (max-width: 768px) {
     .cabinetContainer {
         grid-template-columns: 1fr; /* Одна колонка на мобильных устройствах */
+        padding: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     .profile-image-section {
@@ -53,7 +56,7 @@
 
     .profile-section {
         min-height: auto; /* Убираем минимальную высоту на мобильных устройствах */
-        padding: 15px; /* Уменьшаем отступы */
+        /* padding: 15px; Уменьшаем отступы */
     }
 }
 

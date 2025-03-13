@@ -30,16 +30,16 @@
                 <h1>Ваш идеальный отдых начинается здесь <br> уют, природа и комфорт под одной крышей!</h1>
             </div>
             <div class="social-icons">
-                <a href="https://vk.com/" target="_blank" class="icon">
+                <a href="https://vk.com/" target="_blank" class="social-icon">
                     <img src="{{ asset('icons/vk.png') }}" alt="vk">
                 </a>
-                <a href="https://blog.whatsapp.com/whats-app-web?lang=ru_RU" target="_blank" class="icon">
+                <a href="https://blog.whatsapp.com/whats-app-web?lang=ru_RU" target="_blank" class="social-icon">
                     <img src="{{ asset('icons/whatsapp.png') }}" alt="whatsapp">
                 </a>
-                <a href="https://www.instagram.com/" target="_blank" class="icon">
+                <a href="https://www.instagram.com/" target="_blank" class="social-icon">
                     <img src="{{ asset('icons/instagram.png') }}" alt="instagram">
                 </a>
-                <a href="https://web.telegram.org/" target="_blank" class="icon">
+                <a href="https://web.telegram.org/" target="_blank" class="social-icon">
                     <img src="{{ asset('icons/telegram.png') }}" alt="telegram">
                 </a>
             </div>
