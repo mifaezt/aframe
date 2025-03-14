@@ -15,37 +15,37 @@
         <!-- Блок 1 -->
         <div class="interior-block interior-fade-in">
             <div class="interior-image-container">
-                <img src="{{ asset('images/interior/1.jpg') }}" alt="Описание фото 1">
+                <img src="{{ asset('images/interior/mainRoom.jpg') }}" alt="Главная комната">
             </div>
             <div class="interior-text-container">
-                <p>Уютная гостиная с камином и мягкими креслами.</p>
+                <p>Уютная гостиная и просторная гостинная</p>
             </div>
         </div>
 
         <!-- Блок 2 -->
         <div class="interior-block interior-fade-in">
             <div class="interior-image-container">
-                <img src="{{ asset('images/interior/2.jpg') }}" alt="Описание фото 2">
+                <img src="{{ asset('images/interior/kitchen.jpg') }}" alt="Кухня">
             </div>
             <div class="interior-text-container">
-                <p>Спальня с деревянной кроватью и большими окнами.</p>
+                <p>Современная кухня со всем необходимым</p>
             </div>
         </div>
 
         <!-- Блок 3 -->
         <div class="interior-block interior-fade-in">
             <div class="interior-image-container">
-                <img src="{{ asset('images/interior/3.jpg') }}" alt="Описание фото 3">
+                <img src="{{ asset('images/interior/upBedroom.jpg') }}" alt="Спальня">
             </div>
             <div class="interior-text-container">
-                <p>Кухня с современной техникой и обеденной зоной.</p>
+                <p>Две кровати и раскладной диван, комфортное размещение 6 человек</p>
             </div>
         </div>
 
         <!-- Блок 4 -->
         <div class="interior-block interior-fade-in">
             <div class="interior-image-container">
-                <img src="{{ asset('images/interior/4.jpg') }}" alt="Описание фото 4">
+                <img src="{{ asset('images/interior/showeRoom.jpg') }}" alt="Душевая">
             </div>
             <div class="interior-text-container">
                 <p>Ванная комната с душевой кабиной и стильным дизайном.</p>
@@ -55,10 +55,20 @@
         <!-- Блок 5 -->
         <div class="interior-block interior-fade-in">
             <div class="interior-image-container">
-                <img src="{{ asset('images/interior/5.jpg') }}" alt="Описание фото 5">
+                <img src="{{ asset('images/interior/sauna.jpg') }}" alt="Сауна">
             </div>
             <div class="interior-text-container">
-                <p>Терасса с видом на природу и удобными креслами.</p>
+                <p>Горячая сауна</p>
+            </div>
+        </div>
+
+        <!-- Блок 6 -->
+        <div class="interior-block interior-fade-in">
+            <div class="interior-image-container">
+                <img src="{{ asset('images/interior/toilet.jpg') }}" alt="Сауна">
+            </div>
+            <div class="interior-text-container">
+                <p>Туалет внутри дома</p>
             </div>
         </div>
     </div>

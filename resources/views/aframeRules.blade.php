@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
-@section('title', 'Правила проживания')
+@section('title', 'Наши правила')
 
 @section('content')
 <section class="about-section container">
 <div class="about-container">
         <div class="about-text">
-            <h1>Правила проживания</h1>
+        <h1>Правила проживания</h1>
             <div class="divider"></div>
             <h2>Добро пожаловать к нам в гости!</h2>
             <p>Милые гости, просим вас перед бронированием внимательно ознакомиться со следющими правилами проживания
@@ -28,7 +28,7 @@
             <div class="divider"></div>
         </div>
         <div class="about-image">
-            <img src="{{ asset('images/aframeHome.jpg') }}" alt="О нас" loading="lazy">
+            <img src="{{ asset('images/aframeHome.jpg') }}" alt="наш домик" loading="lazy">
         </div>
     </div>
 </section>
