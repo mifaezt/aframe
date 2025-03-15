@@ -2,47 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
+use Carbon\Carbon; //Ипорт библиотеки для работы с датами
 use App\Models\Booking;
 use App\Models\HouseSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\NewBookingNotification;
+
+// Управление бронированием
 class BookingController extends Controller
 {
 
 
-    // Отображает форму бронирования
+    // Отображает форму создания бронирования
     public function create()
     {
         $houseSetting = HouseSetting::first(); // Получаем первую запись (у нас всего один домик)
-        return view('bookings.create', compact('houseSetting'));
+        return view('bookings.create', compact('houseSetting')); //передаем в вид для использование характеристик домика
     }
 
-    // Отображение календаря на странице
+    // Обработка данных из формы бронирования, сохранение брони
     public function store(Request $request)
     {
+        // валидируем даты
         $request->validate([
             'start_date' => 'required|date|after_or_equal:today',
             'end_date' => 'required|date|after:start_date',
         ]);
 
-        // Проверка доступности дат
+        // Проверка доступности дат, ищем пересечения с уже имеющимися бронями
         $isAvailable = Booking::where(function ($query) use ($request) {
                 $query->whereBetween('start_date', [$request->start_date, $request->end_date])
                     ->orWhereBetween('end_date', [$request->start_date, $request->end_date]);
             })
             ->doesntExist();
 
+            // Если даты недоступны, возвращаем пользователя назад с сообщением об ошибке.
         if (!$isAvailable) {
             return back()->withErrors(['dates' => 'Домик уже забронирован на выбранные даты.']);
         }
 
-        // Расчет стоимости
+        // Иначе
+        // Расчет стоимости количество дней * цену за ночь
         $totalDays = Carbon::parse($request->start_date)->diffInDays($request->end_date);
-        $totalPrice = $totalDays * 5000; // Цена за ночь 
+        $totalPrice = $totalDays * 6000; // Цена за ночь 
 
-        // Создание бронирования
+        // Создание бронирования черпез модель
         $booking = Booking::create([
             'user_id' => auth()->id(),
             'start_date' => $request->start_date,
@@ -62,49 +67,4 @@ class BookingController extends Controller
         return redirect()->route('userCabinet')->with('success', 'Бронирование успешно создано!');
     }
 
-    public function getEvents()
-{
-    $bookings = Booking::all(); // Получаем все бронирования
-
-    $events = [];
-    foreach ($bookings as $booking) {
-        $events[] = [
-            'title' => 'Занято', // Название события
-            'start' => $booking->start_date, // Дата начала
-            'end' => $booking->end_date, // Дата окончания
-            'color' => '#ff9f89', // Цвет события (например, красный)
-        ];
-    }
-
-    return response()->json($events); // Возвращаем данные в формате JSON
-}
-
-    // Проверка доступности дат
-    public function checkAvailability(Request $request)
-    {
-        $startDate = $request->query('start_date');
-        $endDate = $request->query('end_date');
-
-        $isAvailable = Booking::where(function ($query) use ($startDate, $endDate) {
-                $query->whereBetween('start_date', [$startDate, $endDate])
-                    ->orWhereBetween('end_date', [$startDate, $endDate]);
-            })
-            ->doesntExist();
-
-        return response()->json(['available' => $isAvailable]);
-    }
-
-    // Ценник бронирования в переменную pricePerNight
-    public function userCabinet() {
-        // Получаем цену домика из таблицы house_settings
-        $houseSetting = HouseSetting::first(); // Предполагаем, что у вас только одна запись с настройками
-        $pricePerNight = $houseSetting ? $houseSetting->price_per_night : null;
-        $pricePerNightWeek = $houseSetting ? $houseSetting->price_per_night_week : null;
-    
-        // Передаем данные в вид
-        return view('user.userCabinet', [
-            'pricePerNight' => $pricePerNight,
-            'pricePerNightWeek' => $pricePerNightWeek,
-        ]);
-    }
 }

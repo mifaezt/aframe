@@ -50,7 +50,7 @@
 
         <!-- Секция с фото -->
         <section class="profile-image-section">
-            <img src="{{ asset('images/dwarf.jpg') }}" alt="Домик у озера" class="profile-image">
+            <img src="{{ asset('images/buckground.jpg') }}" alt="Домик у озера" class="profile-image">
         </section>
     </div>
 </div>

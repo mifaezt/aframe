@@ -18,3 +18,4 @@ class PriceComposer
         $view->with('pricePerNightWeek', $pricePerNightWeek);
     }
 }
+

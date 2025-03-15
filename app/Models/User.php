@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends \TCG\Voyager\Models\User
+class User extends \TCG\Voyager\Models\User //функциональность Voyager для управления пользователями через админ-панель
 {
     use HasFactory, Notifiable;
 
@@ -46,7 +46,7 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
-     * Связь с бронированиями пользователя.
+     * Связь с бронированиями пользователя. 1 польз-ль может иметь много бронированей
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

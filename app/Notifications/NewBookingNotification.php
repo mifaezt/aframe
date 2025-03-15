@@ -7,11 +7,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-// implements ShouldQueue
 class NewBookingNotification extends Notification 
 {
     use Queueable;
-
     protected $booking;
     protected $user;
 
@@ -21,11 +19,13 @@ class NewBookingNotification extends Notification
         $this->user = $user;
     }
 
+    // определяем через что будем отправлять уведомление в методе via
     public function via($notifiable)
     {
         return ['mail']; // Отправляем уведомление по почте
     }
 
+    // Формируем тело сообщения
     public function toMail($notifiable)
 {
 
@@ -41,7 +41,7 @@ class NewBookingNotification extends Notification
         ->line('Телефон: ' . $this->user->phone)
         ->line('Дата начала бронирования: ' . $this->booking->start_date)
         ->line('Дата окончания бронирования: ' . $this->booking->end_date)
-        ->action('Просмотреть бронирование', url('/admin/bookings')) // Ссылка на админку
+        ->action('Просмотреть бронирование', url('/admin/bookings')) // Ссылка на админку для удобства
         ->line('Jarviranta');
 }
 }
